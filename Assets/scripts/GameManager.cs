@@ -1,3 +1,4 @@
+using System.Dynamic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,17 +13,51 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		NewGame()
+		NewGame();
 	}
 
+	private void Update()
+	{
+		if (this.Input.anyKeyDown)
+		{
+			NewGame();
+		}
+
+
+	}
 	private void NewGame()
 	{
 		SetScore(0);
 		SetLives(3);
-		NewRound();
+		NewRound(0);
 
 	}
+	private void NewRound(int round )
+	{
+		foreach(Transform pellet in this.pellets){
+			pellet.gameObject.SetActive(true);
+		}
+		ResetState();
+		
+	}
 
+	private void ResetState()
+	{
+		for (int i = 0; i < this.ghosts.Length; i++){
+			// this.ghosts.gameObject.SetActive(true);
+		}
+		
+		this.pacman.gameObject.SetActive(true);
+	}
+
+	private void GameOver()
+	{
+		for (int i = 0; i < this.ghosts.Length; i++){
+			//this.ghosts.gameObject.SetActive(false);
+		}
+		
+		this.pacman.gameObject.SetActive(false);
+	}
 	private void SetScore(int score)
 	{
 		this.score = score;
@@ -32,22 +67,21 @@ public class GameManager : MonoBehaviour
 	{
 		this.lives = lives;
 	}
-
-	private void NewRound(int round )
+	public void GhostEaten()
 	{
-		foreach(Transform pellet in this.pellets){
-			pellet.gameObject.SetActive(true);
-		}
-		ResetState()
+		//SetScore(this.score +ghosts.points);
 	}
-
-	private void ResetState()
+	public void PacmanEaten()
 	{
-		for (int i = o; i < this.ghosts.Length; i++){
-			this.ghosts.gameObject.SetActive(true);
-		}
-		
-		this.pacman.gameObject.SetActive(true);
-	}
+		this.pacman.gameObject.SetActive(false);
+		SetLives(this.lives-1);
 
+		if (this.lives > 0)
+		{
+			Invoke(nameof(ResetState), 2.0f);
+		} else {
+			GameOver();
+		}
+
+	}
 }
