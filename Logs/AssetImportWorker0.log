@@ -434,3 +434,10 @@ Received Import Request.
   path: Assets/sprites/PC _ Computer - Not Pac-Man - Unused Content - pacman.png.png
   artifactKey: Guid(4fc3d79489a77ab459e4ba83e8c34c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/sprites/PC _ Computer - Not Pac-Man - Unused Content - pacman.png.png using Guid(4fc3d79489a77ab459e4ba83e8c34c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abc02fe761cf4e142de2ffb252015054') in 0.089253 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 742.421416 seconds.
+  path: Assets/scripts/Movement.cs
+  artifactKey: Guid(efcebd67b2be8c74cbe5c1b73632dc8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/scripts/Movement.cs using Guid(efcebd67b2be8c74cbe5c1b73632dc8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e87f8396c80c154f6e8e3bbe839c8a09') in 0.049294 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
